@@ -33,9 +33,9 @@ def update_item(item_id:int, item:Item):
 
     Returns
     -------
-    # Item
-    #     The item after it has been added to database
-    # """
+    Item
+        The item after it has been added to database
+    """
     conn = get_db()
     conn.execute(
         "UPDATE items SET name = ?, price = ?, is_offer = ? WHERE id = ?",
@@ -64,3 +64,7 @@ def delete_item(item_id: int):
     conn.execute("DELETE FROM items WHERE id = ?", (item_id,))
     conn.commit()
     return {"message": "Item deleted"}
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)
