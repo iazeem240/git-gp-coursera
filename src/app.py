@@ -33,9 +33,9 @@ def update_item(item_id:int, item:Item):
 
     Returns
     -------
-    Item
-        The item after it has been added to database
-    """
+    # Item
+    #     The item after it has been added to database
+    # """
     conn = get_db()
     conn.execute(
         "UPDATE items SET name = ?, price = ?, is_offer = ? WHERE id = ?",
